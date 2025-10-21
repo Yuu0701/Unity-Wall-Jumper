@@ -3,7 +3,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public Transform player;
-    public float verticalOffset = 2f;   // How far ahead of the player the camera should look
+    public float verticalOffset = 5f;   // How far ahead of the player the camera should look
     public float smoothSpeed = 5f;      // Smooth camera movement
 
     private float highestY;             // Track the highest Y position the camera reached
