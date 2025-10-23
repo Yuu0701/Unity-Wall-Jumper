@@ -22,6 +22,10 @@ public class PlayerMovement : MonoBehaviour
     private float wallJumpDuration = 0.4f;
     private Vector2 wallJumpPower = new Vector2(8f, 16f);
 
+    // Double Jump Variables
+    private bool doubleJump;
+    private bool wasGrounded; // Check if the player was touching the ground before the double jump
+
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck; // Store GroundCheck GameObject's Transform information under Player GameObject
     [SerializeField] private LayerMask groundLayer; // The Ground prefab's Layer needs to be set to Ground
@@ -39,10 +43,30 @@ public class PlayerMovement : MonoBehaviour
         // Get the Horizontal input from the keyboard every frame
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        // Jump 
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        bool grounded = IsGrounded();
+
+        if (grounded && !wasGrounded)
+        {
+            doubleJump = false; // Reset the double jump when touching the ground
+        }
+        else if (!grounded && wasGrounded)
+        {
+            doubleJump = true; // Player can double jump after falling from the ledge
+        }
+
+        // Jump, short jump, double jump available
+        if (Input.GetButtonDown("Jump") && (IsGrounded() || doubleJump))
         {
             Jump();
+            
+            if (grounded)
+            {
+                doubleJump = true;
+            }
+            else
+            {
+                doubleJump = false;
+            }
         }
         if (Input.GetButtonUp("Jump"))
         {
@@ -56,6 +80,8 @@ public class PlayerMovement : MonoBehaviour
         {
             FlipCharacter(); // Check if the player art needs to be flipped
         }
+
+        wasGrounded = grounded;
     }
 
     private void FixedUpdate()
@@ -111,6 +137,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void DoubleJump()
+    {
+
+    }
+
     private void WallJump()
     {
          if (isWallSliding)
@@ -143,6 +174,8 @@ public class PlayerMovement : MonoBehaviour
                 localScale.x *= -1f; // Flip the sign for the values
                 transform.localScale = localScale; // Update the Scale values on transform
             }
+
+            doubleJump = true; // Allow double jump after wall jump
 
             Invoke(nameof(StopWallJumping), wallJumpDuration); // Set wall jumping bool to false after certain duration
         }
