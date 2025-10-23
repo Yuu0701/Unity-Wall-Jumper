@@ -10,6 +10,14 @@ public class PlayerMovement : MonoBehaviour
     // Character Art's face direction
     private bool isFacingRight = true;
 
+    // Dash Variables
+    private bool dashable = true;
+    private bool isDashing;
+    private float dashingPower = 36;
+    private float dashingTime = 0.2f;
+    private float dashingCoolDown = 1f;
+    [SerializeField] TrailRenderer trail;
+
     // Character Wall Sliding variables
     private bool isWallSliding;
     private float wallSlidingSpeed = 2f;
