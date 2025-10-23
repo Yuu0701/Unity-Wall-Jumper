@@ -4,8 +4,8 @@ public class PlayerMovement : MonoBehaviour
 {
 
     [SerializeField] private float horizontal;
-    [SerializeField] private float speed = 8f;
-    [SerializeField] private float jumpPower = 16;
+    [SerializeField] private float speed = 16f;
+    [SerializeField] private float jumpPower = 24f;
 
     // Character Art's face direction
     private bool isFacingRight = true;
@@ -19,8 +19,8 @@ public class PlayerMovement : MonoBehaviour
     private float wallJumpDir;
     private float wallJumpTime = 0.2f; // Grace period time
     private float wallJumpCounter; // Grace period for wall jump input so that it doesnt have to be frame perfect
-    private float wallJumpDuration = 0.4f;
-    private Vector2 wallJumpPower = new Vector2(8f, 16f);
+    [SerializeField] private float wallJumpDuration = 0.4f;
+    [SerializeField] private Vector2 wallJumpPower = new Vector2(16f, 24f);
 
     // Double Jump Variables
     private bool doubleJump;
@@ -113,12 +113,13 @@ public class PlayerMovement : MonoBehaviour
         if (IsWalled() && !IsGrounded() && horizontal != 0f)
         {
             isWallSliding = true;
-            
+            Debug.Log("WALL SLIDING TRUE");
             // Use Mathf.Clamp to force the character to not go faster than wallSlidingSpeed when sliding a wall
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Clamp(rb.linearVelocity.y, -wallSlidingSpeed, float.MaxValue));
         }
         else
         {
+            Debug.Log("WALL SLIDING False");
             isWallSliding = false;
         }
     }
@@ -135,11 +136,6 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
         }
-    }
-
-    private void DoubleJump()
-    {
-
     }
 
     private void WallJump()
