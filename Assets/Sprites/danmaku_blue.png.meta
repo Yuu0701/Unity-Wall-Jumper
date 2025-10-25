@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6963bbaddecc1aa40a058ec36aebc455
+guid: 9d4ba5f090b506244842f29ad76c457b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4023092188416029352
-    second: danmaku_pink_0
+      213: -2426400905334157468
+    second: danmaku_blue_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: danmaku_pink_0
+      name: danmaku_blue_0
       rect:
         serializedVersion: 2
         x: 27
         y: 25
         width: 338
-        height: 338
+        height: 337
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8a2bf25b705e4d730800000000000000
-      internalID: 4023092188416029352
+      spriteID: 46f0fd27b31b35ed0800000000000000
+      internalID: -2426400905334157468
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      danmaku_pink_0: 4023092188416029352
+      danmaku_blue_0: -2426400905334157468
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
