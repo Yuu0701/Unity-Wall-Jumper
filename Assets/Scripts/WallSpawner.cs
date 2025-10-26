@@ -5,6 +5,7 @@ public class WallSpawner : MonoBehaviour
     // Reference the Wall Prefabs
     [SerializeField] private GameObject leftWall;
     [SerializeField] private GameObject rightWall;
+    [SerializeField] private GameObject spikes;
 
     // Gather the initial positions for walls
     private float leftWallXPos = -17.14f;
@@ -14,6 +15,8 @@ public class WallSpawner : MonoBehaviour
     // Get Camera offset to spawn walls outside of camera frame
     [SerializeField] private float cameraOffset = 2f;
     [SerializeField] private float destroyOffset = 5f;
+
+    [SerializeField] private float spikeSpawnChance = 0.25f;
 
     // Variables to update Walls' positions and its height
     private Transform previousLeftWall; // Reference to the last left wall prefab spawned
@@ -58,9 +61,30 @@ public class WallSpawner : MonoBehaviour
         GameObject nextLeftWall = Instantiate(leftWall, new Vector3(leftWallXPos, nextYPos, 0f), Quaternion.identity);
         GameObject nextRightWall = Instantiate(rightWall, new Vector3(rightWallXPos, nextYPos, 0f), Quaternion.identity);
 
+        // Occasionally spawn spikes on wall
+        SpawnSpikes(nextLeftWall.transform, true);
+        SpawnSpikes(nextRightWall.transform, false);
+
         // Update the latest wall's transform positions
         previousLeftWall = nextLeftWall.transform;
         previousRightWall = nextRightWall.transform;
+    }
+
+    private void SpawnSpikes(Transform wall, bool isLeftWall)
+    {
+        if (Random.value < spikeSpawnChance)
+        {
+            Vector3 wallPos = wall.position;
+
+            GameObject spikeInstance = Instantiate(spikes, wallPos, spikes.transform.rotation);
+
+            if (isLeftWall)
+            {
+                Vector3 localScale = spikeInstance.transform.localScale;
+                localScale.y *= -1;
+                spikeInstance.transform.localScale = localScale;
+            }
+        }
     }
 
     private void DestroyWall(float cameraBottomY)

@@ -345,8 +345,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WallSpawner
   leftWall: {fileID: 809428266120087132, guid: cd5f1bd54ec32dd4ea600417964a9a04, type: 3}
   rightWall: {fileID: 6679569980476636060, guid: e9ce4d6b1d9fb3f45aaf64dc7159ad5d, type: 3}
+  spikes: {fileID: 1195252177710591022, guid: a8ef0a81c56ec9b44ab0c467a1a64321, type: 3}
   cameraOffset: 2
   destroyOffset: 5
+  spikeSpawnChance: 0.25
 --- !u!1 &340362644
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,8 +840,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ObjectSpawner
   obstaclePrefabs:
   - {fileID: 2945848063160583089, guid: f1f04e7be0471784a9d38c68178d423e, type: 3}
-  - {fileID: 8094063529840346138, guid: 8f4cc0c59fb87bd478adcadabaee119d, type: 3}
+  - {fileID: 7026941936906358026, guid: 0467c11f2c972f1479a08036896f2b12, type: 3}
   - {fileID: 1385221643237684892, guid: 497bcacbee4023e4d896ba9badf0990d, type: 3}
+  platform: {fileID: 1282556550545489822, guid: 79350d70f4883e5418e52ec1183e70db, type: 3}
+  platformSpawnTime: 10
+  currentTimeUntilPlatform: 0
   obstacleSpawnTime: 2
   currentTimeUntilSpawn: 0
   cameraOffset: 2
@@ -1810,6 +1815,7 @@ GameObject:
   - component: {fileID: 1859225296}
   - component: {fileID: 1859225295}
   - component: {fileID: 1859225299}
+  - component: {fileID: 1859225301}
   - component: {fileID: 1859225300}
   m_Layer: 0
   m_Name: Player
@@ -2103,6 +2109,18 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &1859225301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859225294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d78e26ad00794341bffa0c02a9ec439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCollision
 --- !u!1 &1884284660
 GameObject:
   m_ObjectHideFlags: 0
