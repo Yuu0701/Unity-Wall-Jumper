@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     // Dash Variables
     private bool dashable = true;
     private bool isDashing;
-    private float dashingPower = 36;
+    private float dashingSpeed = 36f;
     private float dashingTime = 0.2f;
     private float dashingCoolDown = 1f;
     [SerializeField] TrailRenderer trail;
@@ -48,6 +49,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Return if the player is dashing -> prevent players from moving during the dash
+        if (isDashing)
+        {
+            return;
+        }
         // Get the Horizontal input from the keyboard every frame
         horizontal = Input.GetAxisRaw("Horizontal");
 
@@ -84,6 +90,12 @@ public class PlayerMovement : MonoBehaviour
         WallSlide();
         WallJump();
 
+        // Dashing Updates
+        if (Input.GetKeyDown(KeyCode.LeftShift) && dashable)
+        {
+            StartCoroutine(Dash());
+        }
+
         if (!isWallJumping)
         {
             FlipCharacter(); // Check if the player art needs to be flipped
@@ -94,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isWallJumping)
+        if (!isWallJumping && !isDashing)
         {
             // Update the velocity in FixedUpdate for smoothness
             rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
@@ -201,5 +213,28 @@ public class PlayerMovement : MonoBehaviour
             localScale.x *= -1f; // Flip the sign for the values
             transform.localScale = localScale; // Update the Scale values on transform
         }
+    }
+
+    /*------------------------------- Dash ------------------------------------------*/
+    private IEnumerator Dash()
+    {
+        dashable = false;
+        isDashing = true;
+
+        float gravity = rb.gravityScale; // Save the current gravity scale for future usage
+        rb.gravityScale = 0f;
+        rb.linearVelocity = new Vector2(Mathf.Sign(transform.localScale.x) * dashingSpeed, 0f);
+
+        // Display the trail
+        trail.emitting = true;
+        yield return new WaitForSeconds(dashingTime);
+        trail.emitting = false;
+
+        // Fix back the gravity
+        rb.gravityScale = gravity;
+        isDashing = false;
+
+        yield return new WaitForSeconds(dashingCoolDown);
+        dashable = true;
     }
 }

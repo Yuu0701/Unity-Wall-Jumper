@@ -29,6 +29,7 @@ public class ObjectSpawner : MonoBehaviour
 
         SpawnLoop();
         DestroyObstacles();
+        DestroyPlatform();
     }
 
     private void SpawnLoop()
@@ -76,6 +77,19 @@ public class ObjectSpawner : MonoBehaviour
             if (obstacle.transform.position.y < cameraBottomYPos - destroyOffset)
             {
                 Destroy(obstacle);
+            }
+        }
+    }
+
+    private void DestroyPlatform()
+    {
+        GameObject[] platforms = GameObject.FindGameObjectsWithTag("Platform");
+
+        foreach (GameObject platform in platforms)
+        {
+            if (platform.transform.position.y < cameraBottomYPos - destroyOffset)
+            {
+                Destroy(platform);
             }
         }
     }
