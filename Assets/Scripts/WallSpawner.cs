@@ -78,6 +78,7 @@ public class WallSpawner : MonoBehaviour
 
             GameObject spikeInstance = Instantiate(spikes, wallPos, spikes.transform.rotation);
 
+            // If the spike is getting spawned on left wall, flip the prefab
             if (isLeftWall)
             {
                 Vector3 localScale = spikeInstance.transform.localScale;
@@ -89,8 +90,10 @@ public class WallSpawner : MonoBehaviour
 
     private void DestroyWall(float cameraBottomY)
     {
+        // Find all Wall on the Scene view
         GameObject[] walls = GameObject.FindGameObjectsWithTag("Wall");
 
+        // For each found wall, destroy if its below the camera frame
         foreach (GameObject wall in walls)
         {
             if (wall.transform.position.y + cameraOffset < Camera.main.transform.position.y)

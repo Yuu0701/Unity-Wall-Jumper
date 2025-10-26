@@ -28,6 +28,7 @@ public class ObjectSpawner : MonoBehaviour
         cameraBottomYPos = Camera.main.transform.position.y - Camera.main.orthographicSize;
 
         SpawnLoop();
+        DestroyObstacles();
     }
 
     private void SpawnLoop()
@@ -64,5 +65,18 @@ public class ObjectSpawner : MonoBehaviour
         float randomX = Random.Range(-8f, 8f); // Random X position
 
         Instantiate(platform, new Vector3(randomX, spawnHeight, 0f), Quaternion.identity);
+    }
+
+    private void DestroyObstacles()
+    {
+        GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+
+        foreach (GameObject obstacle in obstacles)
+        {
+            if (obstacle.transform.position.y < cameraBottomYPos - destroyOffset)
+            {
+                Destroy(obstacle);
+            }
+        }
     }
 }
