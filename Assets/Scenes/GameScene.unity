@@ -3997,6 +3997,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3399937149171425574, guid: de11cfc7767a4ce46b9d521fb7479247, type: 3}
+      propertyPath: sliding
+      value: 
+      objectReference: {fileID: 8300000, guid: ecba0fef608986142b6df785958ccbad, type: 3}
     - target: {fileID: 3402481222813822527, guid: de11cfc7767a4ce46b9d521fb7479247, type: 3}
       propertyPath: gameOverMenu
       value: 
