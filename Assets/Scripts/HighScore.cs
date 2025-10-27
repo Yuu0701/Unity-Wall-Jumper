@@ -14,7 +14,12 @@ public class HighScore : MonoBehaviour
         // If the PlayerPrefs already exists, read it
         if (PlayerPrefs.HasKey("HighScore"))
         {
-
+            currentScore = PlayerPrefs.GetInt("HighScore");
+        }
+        else
+        {
+            currentScore = 0;
+            PlayerPrefs.SetInt("HighScore", currentScore);
         }
     }
 
