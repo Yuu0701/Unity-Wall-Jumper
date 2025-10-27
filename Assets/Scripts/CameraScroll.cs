@@ -15,6 +15,8 @@ public class CameraScroll : MonoBehaviour
         transform.Translate(Vector3.up * scrollSpeed * Time.deltaTime);
 
         timer += Time.deltaTime;
+
+        // Gradually increase scroll speed until maxScrollSpeed is met
         if (timer >= timeUntilSpeedUp && scrollSpeed < maxScrollSpeed)
         {
             scrollSpeed += speedIncrementer;

@@ -37,6 +37,7 @@ public class ObjectSpawner : MonoBehaviour
         DestroyObstacles();
         DestroyPlatform();
 
+        // Increase difficulty over time -> lower the spawn cooldown
         difficultyTimer += Time.deltaTime;
         if (difficultyTimer >= timeUntilIncreaseDif)
         {
@@ -91,6 +92,7 @@ public class ObjectSpawner : MonoBehaviour
     {
         GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
 
+        // For each object, destroy if out of camera frame
         foreach (GameObject obstacle in obstacles)
         {
             if (obstacle.transform.position.y < cameraBottomYPos - destroyOffset)
@@ -104,6 +106,7 @@ public class ObjectSpawner : MonoBehaviour
     {
         GameObject[] platforms = GameObject.FindGameObjectsWithTag("Platform");
 
+        // For each object, destroy if out of camera frame
         foreach (GameObject platform in platforms)
         {
             if (platform.transform.position.y < cameraBottomYPos - destroyOffset)
