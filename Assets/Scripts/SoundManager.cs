@@ -19,6 +19,7 @@ public class SoundManager : MonoBehaviour
         source = GetComponent<AudioSource>();
     }
 
+    // Play the Audio clip with no Loop
     public void PlaySound(AudioClip musicSound)
     {
         source.PlayOneShot(musicSound);

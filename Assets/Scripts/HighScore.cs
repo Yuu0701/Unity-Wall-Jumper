@@ -32,6 +32,7 @@ public class HighScore : MonoBehaviour
             currentScore = value;
             PlayerPrefs.SetInt("HighScore", value); // Storing HighScore value locally
 
+            // Update the High Score if the Text box for high score exists
             if (UITEXT != null)
             {
                 UITEXT.text = "High Score: " + value.ToString("#,0") + "m";

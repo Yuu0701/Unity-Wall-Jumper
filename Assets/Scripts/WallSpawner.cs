@@ -44,6 +44,7 @@ public class WallSpawner : MonoBehaviour
         float cameraTopYPos = Camera.main.transform.position.y + Camera.main.orthographicSize;
         float cameraBottomYPos = Camera.main.transform.position.y - Camera.main.orthographicSize;
 
+        // Spawn new walls if the camera frame gets closer to the last Instantied walls
         if (cameraTopYPos > previousLeftWall.position.y - cameraOffset)
         {
             SpawnWall();
@@ -72,6 +73,7 @@ public class WallSpawner : MonoBehaviour
 
     private void SpawnSpikes(Transform wall, bool isLeftWall)
     {
+        // Spawn the Spikes at a random chance
         if (Random.value < spikeSpawnChance)
         {
             Vector3 wallPos = wall.position;

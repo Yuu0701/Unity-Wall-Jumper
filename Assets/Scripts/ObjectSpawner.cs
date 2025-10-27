@@ -48,10 +48,12 @@ public class ObjectSpawner : MonoBehaviour
 
     private void IncreaseDifficulty()
     {
+        // As the Spawn Time decreases, choose the minimumObstacle SpawnTime if Spawn Time goes below the threshold
         obstacleSpawnTime = Mathf.Max(minimumObstacleSpawnTime, obstacleSpawnTime - 0.1f);
-        Physics2D.gravity *= 1.02f;
+        Physics2D.gravity *= 1.02f; // Increase the physics gravity for faster falling Sword
     }
 
+    // Spawn platform and obstacles if the spawn cooldown is finished
     private void SpawnLoop()
     {
         currentTimeUntilSpawn += Time.deltaTime;
@@ -88,6 +90,7 @@ public class ObjectSpawner : MonoBehaviour
         Instantiate(platform, new Vector3(randomX, spawnHeight, 0f), Quaternion.identity);
     }
 
+    // Obstacle here includes the spike obstacle, which is Instantiated in the WallSpawn.cs
     private void DestroyObstacles()
     {
         GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");

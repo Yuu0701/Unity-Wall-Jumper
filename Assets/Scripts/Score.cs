@@ -25,6 +25,7 @@ public class Score : MonoBehaviour
             score = Mathf.FloorToInt(highestYPos - playerStartingY);
         }
 
+        // Update the Text UI Box
         textElement.text = score.ToString("#,0") + "m";
     }
 

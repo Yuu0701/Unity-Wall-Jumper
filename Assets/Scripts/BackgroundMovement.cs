@@ -7,6 +7,7 @@ public class BackgroundMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If the Camera frame is coming closer to the top of Top background, move the center background's position
         if (transform.position.y >= centerBackground.position.y + 41.41667f)
         {
             centerBackground.position = new Vector2(centerBackground.position.x, transform.position.y + 41.41667f);
