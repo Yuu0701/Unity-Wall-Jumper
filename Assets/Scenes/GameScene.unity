@@ -1360,10 +1360,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a585fbafdadf14687efa8b3f9fdfbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraScroll
-  scrollSpeed: 2
+  scrollSpeed: 0
   timer: 0
   timeUntilSpeedUp: 5
   maxScrollSpeed: 6
+  speedIncrementer: 0.5
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4052,8 +4053,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5341208505275590137, guid: de11cfc7767a4ce46b9d521fb7479247, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2991724003340773684}
   m_SourcePrefab: {fileID: 100100000, guid: de11cfc7767a4ce46b9d521fb7479247, type: 3}
+--- !u!1 &2991724003340773683 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5341208505275590137, guid: de11cfc7767a4ce46b9d521fb7479247, type: 3}
+  m_PrefabInstance: {fileID: 2991724003340773682}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2991724003340773684
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2991724003340773683}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2ab2067006b559144b78f5ab3d2d607a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
