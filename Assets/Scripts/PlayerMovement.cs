@@ -120,6 +120,8 @@ public class PlayerMovement : MonoBehaviour
     // Function to Check if the Player is touching the ground
     private bool IsGrounded()
     {
+        bool g = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        Debug.Log("Grounded: " + g);
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
