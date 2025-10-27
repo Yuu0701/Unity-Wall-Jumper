@@ -7,7 +7,8 @@ Obstacles:
     The original idea talked about adding Monster as an obstacle. That did not happen and the game uses spikes, a sword, and a blue energy ball as obstacles to target the player.
 
 Background music:
-    Since background music was discouraged by the professor, the game does not have a background music and some sound effects were unfortunately not implemented in the game.
+    Background music was discouraged in the assignment section, but Professor confirmed it would be okay if the audio is minimal and does not disturb when grading, so it is still there, but with low volume.
 
 Camera Control in Unity:
     The original plan was to allow the camera to follow the player's movement based on its current height. However, the camera will now scroll upwards automatically and gradually increases its scrolling speed as the game continues. This change added more challenges and change of pace for the player.
+
