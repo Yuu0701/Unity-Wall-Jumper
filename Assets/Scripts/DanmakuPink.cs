@@ -6,7 +6,7 @@ public class DanmakuPink : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform wallCheck; // Reference the wallCheck Gameobject's Transform
     [SerializeField] private LayerMask wallLayer; // Reference the wall Layer
-    [SerializeField] private float bounceCooldown = 0.1f;
+    
 
     private float lastBounceTime;
 
