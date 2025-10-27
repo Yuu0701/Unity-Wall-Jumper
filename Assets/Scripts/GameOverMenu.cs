@@ -8,7 +8,7 @@ public class GameOverMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI finalScoreText;
     [SerializeField] private TextMeshProUGUI highScoreText;
     [SerializeField] private Score _score;
-    [SerializeField] AudioClip gameOverAudio;
+    [SerializeField] private AudioClip gameOverAudio;
 
     private void Start()
     {
