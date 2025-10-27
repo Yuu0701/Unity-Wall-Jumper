@@ -22,6 +22,8 @@ public class DanmakuBlue : MonoBehaviour
     void Update()
     {
         velocity = rb.linearVelocity;
+        
+        // Change direction if touching the wall
         if (IsWalled())
         {
             velocity *= -1;

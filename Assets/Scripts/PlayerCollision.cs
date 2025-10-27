@@ -13,16 +13,17 @@ public class PlayerCollision : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log(isDead);
         isDead = false;
     }
     private void Update()
     {
         if (!isDead)
         {
+            // Collect camera positions where Player will die if they enter the range
             cameraBottomYPos = Camera.main.transform.position.y - Camera.main.orthographicSize - cameraOffset;
             cameraTopYPos = Camera.main.transform.position.y + Camera.main.orthographicSize + cameraOffset;
 
+            // If the Player is in the range of outside of Camera frame + offset, they die
             if ((transform.position.y < cameraBottomYPos) || (transform.position.y > cameraTopYPos))
             {
                 Die();
@@ -52,6 +53,7 @@ public class PlayerCollision : MonoBehaviour
 
         if (gameOverMenu != null)
         {
+            // Activate the Game Over Menu Screen
             gameOverMenu.DisplayGameOverScreen();
         }
 

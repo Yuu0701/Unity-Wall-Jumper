@@ -18,6 +18,7 @@ public class Score : MonoBehaviour
 
     private void Update()
     {
+        // Increase the score based on Player's Y position
         if (player.position.y > highestYPos)
         {
             highestYPos = player.position.y;
@@ -32,6 +33,7 @@ public class Score : MonoBehaviour
         return score;
     }
 
+    // Calls HighScore Script to try and store a new High Score
     public void SaveHighScore()
     {
         HighScore.SetHighScore(score);

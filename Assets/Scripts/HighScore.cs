@@ -16,7 +16,7 @@ public class HighScore : MonoBehaviour
         {
             currentScore = PlayerPrefs.GetInt("HighScore");
         }
-        else
+        else // Otherwise, store the High Score locally
         {
             currentScore = 0;
             PlayerPrefs.SetInt("HighScore", currentScore);
@@ -25,11 +25,12 @@ public class HighScore : MonoBehaviour
 
     static public int SCORE
     {
+        // Allows to return currentScore when called publically, and set values only in script privately
         get { return currentScore; }
         private set
         {
             currentScore = value;
-            PlayerPrefs.SetInt("HighScore", value);
+            PlayerPrefs.SetInt("HighScore", value); // Storing HighScore value locally
 
             if (UITEXT != null)
             {

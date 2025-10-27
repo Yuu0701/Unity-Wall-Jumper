@@ -9,6 +9,11 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField] private float obstacleSpawnTime = 2f;
     [SerializeField] private float currentTimeUntilSpawn;
 
+    // Variables for increasing difficulty
+    [SerializeField] private float timeUntilIncreaseDif = 10f;
+    [SerializeField] private float minimumObstacleSpawnTime = 1f;
+    [SerializeField] private float difficultyTimer;
+
     // Get Camera offset to spawn walls outside of camera frame
     [SerializeField] private float cameraOffset = 3f;
     [SerializeField] private float destroyOffset = 5f;
@@ -24,12 +29,27 @@ public class ObjectSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Collect Camera positions
         cameraTopYPos = Camera.main.transform.position.y + Camera.main.orthographicSize;
         cameraBottomYPos = Camera.main.transform.position.y - Camera.main.orthographicSize;
 
         SpawnLoop();
         DestroyObstacles();
         DestroyPlatform();
+
+        // Increase difficulty over time -> lower the spawn cooldown
+        difficultyTimer += Time.deltaTime;
+        if (difficultyTimer >= timeUntilIncreaseDif)
+        {
+            IncreaseDifficulty();
+            difficultyTimer = 0f;
+        }
+    }
+
+    private void IncreaseDifficulty()
+    {
+        obstacleSpawnTime = Mathf.Max(minimumObstacleSpawnTime, obstacleSpawnTime - 0.1f);
+        Physics2D.gravity *= 1.02f;
     }
 
     private void SpawnLoop()
@@ -72,6 +92,7 @@ public class ObjectSpawner : MonoBehaviour
     {
         GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
 
+        // For each object, destroy if out of camera frame
         foreach (GameObject obstacle in obstacles)
         {
             if (obstacle.transform.position.y < cameraBottomYPos - destroyOffset)
@@ -85,6 +106,7 @@ public class ObjectSpawner : MonoBehaviour
     {
         GameObject[] platforms = GameObject.FindGameObjectsWithTag("Platform");
 
+        // For each object, destroy if out of camera frame
         foreach (GameObject platform in platforms)
         {
             if (platform.transform.position.y < cameraBottomYPos - destroyOffset)
