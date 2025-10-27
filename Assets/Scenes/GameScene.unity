@@ -1750,8 +1750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectSpawner
   obstaclePrefabs:
-  - {fileID: 7792394610617315762, guid: 00c1077e7ae8d4841aa71fdddd95dfe7, type: 3}
-  - {fileID: 7026941936906358026, guid: 0467c11f2c972f1479a08036896f2b12, type: 3}
+  - {fileID: 6594331294885632310, guid: 7b69ff04d10966345928001d0ff278ce, type: 3}
   - {fileID: 1385221643237684892, guid: 497bcacbee4023e4d896ba9badf0990d, type: 3}
   platform: {fileID: 1282556550545489822, guid: 79350d70f4883e5418e52ec1183e70db, type: 3}
   platformSpawnTime: 10
