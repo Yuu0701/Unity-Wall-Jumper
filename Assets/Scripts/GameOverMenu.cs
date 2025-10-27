@@ -8,6 +8,7 @@ public class GameOverMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI finalScoreText;
     [SerializeField] private TextMeshProUGUI highScoreText;
     [SerializeField] private Score _score;
+    [SerializeField] AudioClip gameOverAudio;
 
     private void Start()
     {
@@ -17,6 +18,7 @@ public class GameOverMenu : MonoBehaviour
 
     public void DisplayGameOverScreen()
     {
+        SoundManager.instance.PlaySound(gameOverAudio);
         gameOverMenuUI.SetActive(true);
 
         // Save the scores on the Highest Score
