@@ -724,51 +724,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &378684326
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 378684328}
-  - component: {fileID: 378684327}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &378684327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 378684326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fec2231c46f9e7468dfe1576d02e446, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  currentScore: 0
---- !u!4 &378684328
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 378684326}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 253.88023, y: 306.97238, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &391208647
 GameObject:
   m_ObjectHideFlags: 0
@@ -4042,6 +3997,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3399937149171425574, guid: de11cfc7767a4ce46b9d521fb7479247, type: 3}
+      propertyPath: sliding
+      value: 
+      objectReference: {fileID: 8300000, guid: ecba0fef608986142b6df785958ccbad, type: 3}
     - target: {fileID: 3402481222813822527, guid: de11cfc7767a4ce46b9d521fb7479247, type: 3}
       propertyPath: gameOverMenu
       value: 
@@ -4098,5 +4057,4 @@ SceneRoots:
   - {fileID: 750969156}
   - {fileID: 391208651}
   - {fileID: 1368459437}
-  - {fileID: 378684328}
   - {fileID: 1949601129}
