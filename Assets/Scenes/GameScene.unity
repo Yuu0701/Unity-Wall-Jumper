@@ -1361,6 +1361,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraScroll
   scrollSpeed: 2
+  timer: 0
+  timeUntilSpeedUp: 5
+  maxScrollSpeed: 6
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1799,6 +1802,9 @@ MonoBehaviour:
   currentTimeUntilPlatform: 0
   obstacleSpawnTime: 2
   currentTimeUntilSpawn: 0
+  timeUntilIncreaseDif: 10
+  minimumObstacleSpawnTime: 1
+  difficultyTimer: 0
   cameraOffset: 2
   destroyOffset: 5
 --- !u!4 &750969156
