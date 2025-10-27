@@ -17,6 +17,7 @@ public class BlueBallMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Choose the direction (left or right) of the Ball when spawned
         if (Random.Range(0, 2) == 0)
         {
             direction = -1f;

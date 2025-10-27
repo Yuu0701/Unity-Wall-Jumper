@@ -13,6 +13,7 @@ public class PlayerCollision : MonoBehaviour
 
     private void Awake()
     {
+        // On Every Load Scene, this gets set as false
         isDead = false;
     }
     private void Update()
@@ -51,6 +52,7 @@ public class PlayerCollision : MonoBehaviour
         isDead = true;
         SoundManager.instance.PlaySound(death);
 
+        // Just in case check if the gameOver object is there
         if (gameOverMenu != null)
         {
             // Activate the Game Over Menu Screen

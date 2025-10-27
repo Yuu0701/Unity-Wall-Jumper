@@ -170,6 +170,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (rb.linearVelocity.y > 0f)
         {
+            // Half the vertical Jump velocity
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
         }
     }

@@ -7,6 +7,7 @@ TagManager:
   - Obstacle
   - Wall
   - Platform
+  - Music
   layers:
   - Default
   - TransparentFX
