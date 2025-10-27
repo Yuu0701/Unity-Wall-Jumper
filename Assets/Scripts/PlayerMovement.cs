@@ -7,6 +7,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AudioClip jump;
     [SerializeField] private AudioClip dash;
 
+    // Animation
+    private Animator anim;
+
     [SerializeField] private float horizontal;
     [SerializeField] private float speed = 16f;
     [SerializeField] private float jumpPower = 24f;
@@ -43,6 +46,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer; // The Ground prefab's Layer needs to be set to Ground
     [SerializeField] private Transform wallCheck; // Reference the wallCheck Gameobject's Transform
     [SerializeField] private LayerMask wallLayer; // Reference the wall Layer 
+
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -105,6 +113,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         wasGrounded = grounded;
+
+        // Set animator parameters
+        anim.SetBool("Run", horizontal != 0);
+        anim.SetBool("Grounded", IsGrounded());
     }
 
     private void FixedUpdate()
@@ -120,8 +132,6 @@ public class PlayerMovement : MonoBehaviour
     // Function to Check if the Player is touching the ground
     private bool IsGrounded()
     {
-        bool g = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-        Debug.Log("Grounded: " + g);
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
