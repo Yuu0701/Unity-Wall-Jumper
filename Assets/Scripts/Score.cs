@@ -27,4 +27,13 @@ public class Score : MonoBehaviour
         textElement.text = score.ToString("#,0") + "m";
     }
 
+    public int getCurrentScore()
+    {
+        return score;
+    }
+
+    public void SaveHighScore()
+    {
+        HighScore.SetHighScore(score);
+    }
 }
