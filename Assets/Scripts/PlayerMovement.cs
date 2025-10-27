@@ -3,6 +3,9 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // Variables for Audio
+    [SerializeField] private AudioClip jump;
+    [SerializeField] private AudioClip dash;
 
     [SerializeField] private float horizontal;
     [SerializeField] private float speed = 16f;
@@ -147,6 +150,7 @@ public class PlayerMovement : MonoBehaviour
     /* ----------------------------Functions Regarding Jumps --------------------*/
     private void Jump()
     {
+        SoundManager.instance.PlaySound(jump);
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
     }
 
@@ -178,6 +182,7 @@ public class PlayerMovement : MonoBehaviour
 
          if (Input.GetButtonDown("Jump") && wallJumpCounter > 0f)
         {
+            SoundManager.instance.PlaySound(jump);
             isWallJumping = true;
             rb.linearVelocity = new Vector2(wallJumpDir * wallJumpPower.x, wallJumpPower.y);
             wallJumpCounter = 0f; // So the Player cannot keep jumping
@@ -218,6 +223,8 @@ public class PlayerMovement : MonoBehaviour
     /*------------------------------- Dash ------------------------------------------*/
     private IEnumerator Dash()
     {
+        SoundManager.instance.PlaySound(dash);
+        
         dashable = false;
         isDashing = true;
 
