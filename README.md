@@ -1,11 +1,13 @@
 # Unity-Wall-Jumper
 
 ## The OverView
-A Player trapped between two infinitely high walls. The game screen will slowly starts arise, hinting that there will no longer be a ground for the player to stannd on. In order live, the player will have to jump between Left and Right walls while dodging various obstacles that are falling down from the sky. The goals to jump as high as possible and the game will record the best Score (The Score is the number of height (meters) that the player jumped).
+A Player trapped between two infinitely high walls. The game screen will slowly starts arise, hinting that there will no longer be a ground for the player to stannd on. In order live, the player will have to jump between Left and Right walls while dodging various obstacles that are falling down from the sky. The player will die if they hit a single object or if they fail to jump to the wall and fall to the void. The goals to jump as high as possible and the game will record the best Score (The Score is the number of height (meters) that the player jumped). The difficulty will be harder as the game continues.
 
 Some Features of the Game:
 * Player Movement (is explained in the Controls Section on READ ME)
 * Endless level of wall jumping
+* Increasing camera scroll speed as the game continues
+* Spawning more obstacles frequently as the game continues
 * Obstacle Spawning from the sky
 * A supporting item (platform) to aid the player
 * Score Tracking
@@ -20,6 +22,10 @@ Some Features of the Game:
 5. Wall Jump - While in the Wall Slide position, press the Spacebar (either regular or short) to perform a wall jump. Wall Jump will count as the initial jump, just like the initial jump from the ground.
 6. Double Jump - After the initial Jump, press the spacebar once again (regular or short) to perform a double jump.
 7. Dash - Press the Left Shift key on keyboard to perform a dash.
+
+## Win/Lose Condition
+
+There is no win condition, but the player will die if they touch an obstacle (platform is not an obstacle) or fall to the void.
 
 ## How To Play
 1. Open UnityHub
