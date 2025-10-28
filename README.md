@@ -1,7 +1,7 @@
 # Unity-Wall-Jumper
 
 ## The OverView
-A Player trapped between two infinitely high walls. The game screen will slowly starts arise, hinting that there will no longer be a ground for the player to stannd on. In order live, the player will have to jump between Left and Right walls while dodging various obstacles that are falling down from the sky. The player will die if they hit a single object or if they fail to jump to the wall and fall to the void. The goals to jump as high as possible and the game will record the best Score (The Score is the number of height (meters) that the player jumped). The difficulty will be harder as the game continues.
+A Player trapped between two infinitely high walls. The game screen will slowly starts to arise, hinting that there will no longer be a ground for the player to stand on. In order live, the player will have to jump between Left and Right walls while dodging various obstacles that are falling down from the sky. The player will die if they hit a single object or if they fail to jump to the wall and fall to the void. The goals to jump as high as possible and the game will record the best Score (The Score is the number of height (meters) that the player jumped). The difficulty will be harder as the game continues.
 
 Some Features of the Game:
 * Player Movement (is explained in the Controls Section on READ ME)
